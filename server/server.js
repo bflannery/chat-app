@@ -4,6 +4,8 @@ const express = require("express");
 const socketIO = require("socket.io");
 
 const publicPath  = path.join(__dirname, "../public");
+
+// Set port
 const port = process.env.PORT || 3000
 
 // Initialize Express app
@@ -19,16 +21,13 @@ var io = socketIO(server)
 io.on('connection', (socket) => {
   console.log('New user connected');
 
-  socket.emit('newMessage', {
-    from: 'sophie@example.com',
-    text: 'See you then',
-    createdAt: 123123,
-  });
-
   socket.on('createMessage', (newMessage) => {
-    console.log('createMessage', newMessage)
+    console.log('createMessage', newMessage);
 
-
+    io.emit('newMessage', {
+      ...newMessage,
+      createdAt: new Date().getTime()
+    })
   });
 
   socket.on('disconnect', () => {
