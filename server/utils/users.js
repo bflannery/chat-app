@@ -1,9 +1,3 @@
-[{
-  id:'da0s9gj1l3jklda',
-  name: 'Brian',
-  room: 'The Office Fans'
-}]
-
 class Users {
   constructor () {
     this.users = [];
@@ -36,21 +30,5 @@ class Users {
     return namesArr
   }
 }
-
-// class Person {
-//   constructor (name, age) {
-//     this.name = name;
-//     this.age = age;
-//   }
-//
-//   getUserDescription () {
-//     return `${this.name} is ${this.age} years old`;
-//   }
-//
-// }
-//
-// var me = new Person('Brian', 31);
-// var description = me.getUserDescription();
-// console.log({description});
 
 module.exports = { Users }
